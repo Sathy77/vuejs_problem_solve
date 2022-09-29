@@ -5,8 +5,8 @@
         
         <!-- <button @click="addDiscountedPrice()">Click</button>   [prosse 2: when use method then you need a click, it is the click button]--> 
         
-        <table class="customers">
-        <tr><th>Serial Number</th><th>Phone Name</th><th>Phone Price</th><th>Phone Brand</th><th>Rating</th><th>Discounted Price</th></tr>
+        <!-- <table class="customers">
+        <tr><th>Serial Number</th><th>Phone Name</th><th>Phone Price</th><th>Phone Brand</th><th>Rating</th><th>Discounted Price</th></tr> -->
         
         <!-- <tr v-for="(phone, index) in addDiscountedPrice" :key="index">         [prosse 1: using computed]
             <td>{{index + 1}}</td>
@@ -18,7 +18,7 @@
         </tr> -->
 
         
-        <tr v-for="(phone, index) in copyMobileArray" :key="index">
+        <!-- <tr v-for="(phone, index) in copyMobileArray" :key="index">
             <td>{{index + 1}}</td>
             <td>{{phone.name}}</td>
             <td>{{phone.price}}</td>
@@ -27,16 +27,23 @@
             <td>{{phone.discounted_price}}</td>
         </tr>
 
-      </table>
+      </table> -->
+      <d-table :headers="headersName" :keys="keysName" :data="copyMobileArray"></d-table>
     </div>
 </template>
 
 <script>
+    import TableComponent from '@/components/TableComponent.vue'
     import mobile from '@/assets/JsonFile/phone.json'
     export default{
         name: 'AddDiscountPriceQ9',
+        components:{
+            'd-table': TableComponent
+        },
         data(){
             return{
+                headersName: ['Phone Name', 'Phone Price', 'Phone Brand', 'Discounted Price'],
+                keysName: ['name', 'price', 'brand', 'discounted_price'],
                 mobileArray: JSON.parse(JSON.stringify(mobile)),
                 copyMobileArray: []
             }

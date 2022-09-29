@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <ProblemList></ProblemList>
+    <NavbarComponent></NavbarComponent>
     <router-view/>
   </div>
 </template>
 
 <script>
-  import ProblemList from '@/components/ProblemList.vue'
+  import NavbarComponent from '@/components/NavbarComponent.vue'
   export default {
     components: {
-            ProblemList
+      NavbarComponent
         },
   }
 </script>
